@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Administración</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Titillium+Web:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/admin.css') }}"
+    />
+  </head>
+  <body>
+    <header class="encabezado">
+      <img
+        src="{{ url_for('static', filename='images/logoMercedes.jpg') }}"
+        alt="Logo Mercedes"
+        class="logo-izquierdo"
+      />
+      <div class="titulo-bloque">
+        <h1 class="titulo-principal">Panel de Administración</h1>
+      </div>
+      <img
+        src="{{ url_for('static', filename='images/amgCar.jpg') }}"
+        alt="AMG Car"
+        class="logo-derecho"
+      />
+    </header>
+
+    {% with mensajes = get_flashed_messages() %} {% if mensajes %}
+    <div class="mensajes-flash">
+      {% for mensaje in mensajes %}
+      <p>{{ mensaje }}</p>
+      {% endfor %}
+    </div>
+    {% endif %} {% endwith %}
+
+    <main class="admin-panel">
+      <h2>Editar Última Estadística</h2>
+      <form action="{{ url_for('actualizar_estadisticas') }}" method="POST">
+        <label for="carreras">Carreras:</label>
+        <input
+          type="number"
+          name="carreras"
+          id="carreras"
+          value="{{ estadisticas[1] }}"
+          required
+        />
+
+        <label for="victorias">Victorias:</label>
+        <input
+          type="number"
+          name="victorias"
+          id="victorias"
+          value="{{ estadisticas[2] }}"
+          required
+        />
+
+        <label for="podios">Podios:</label>
+        <input
+          type="number"
+          name="podios"
+          id="podios"
+          value="{{ estadisticas[3] }}"
+          required
+        />
+
+        <label for="puntos">Puntos:</label>
+        <input
+          type="number"
+          name="puntos"
+          id="puntos"
+          value="{{ estadisticas[4] }}"
+          required
+        />
+
+        <div class="botones">
+          <button type="submit">Actualizar</button>
+          <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+        </div>
+      </form>
+
+      <h2>Estadísticas Registradas</h2>
+      <table class="tabla-crud">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Carreras</th>
+            <th>Victorias</th>
+            <th>Podios</th>
+            <th>Puntos</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for fila in registros %}
+          <tr>
+            <form
+              action="{{ url_for('editar_estadistica', id=fila[0]) }}"
+              method="POST"
+            >
+              <td>{{ fila[0] }}</td>
+              <td>
+                <input
+                  type="number"
+                  name="carreras"
+                  value="{{ fila[1] }}"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  name="victorias"
+                  value="{{ fila[2] }}"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  name="podios"
+                  value="{{ fila[3] }}"
+                  required
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  name="puntos"
+                  value="{{ fila[4] }}"
+                  required
+                />
+              </td>
+
+              <td style="white-space: nowrap">
+                <div class="acciones-crud">
+                  <button type="submit" class="boton-guardar">Guardar</button>
+                  <a
+                    href="{{ url_for('eliminar_estadistica', id=fila[0]) }}"
+                    class="boton-eliminar"
+                    onclick="return confirm('¿Eliminar esta estadística?')"
+                    >Eliminar</a
+                  >
+                </div>
+              </td>
+            </form>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <h2>Crear Nueva Estadística</h2>
+      <form
+        action="{{ url_for('crear_estadistica') }}"
+        method="POST"
+        class="form-crear"
+      >
+        <label for="carreras">Carreras:</label>
+        <input type="number" name="carreras" required />
+
+        <label for="victorias">Victorias:</label>
+        <input type="number" name="victorias" required />
+
+        <label for="podios">Podios:</label>
+        <input type="number" name="podios" required />
+
+        <label for="puntos">Puntos:</label>
+        <input type="number" name="puntos" required />
+
+        <button type="submit">Crear</button>
+      </form>
+    </main>
+  </body>
+</html>

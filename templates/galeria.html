@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galería de George Russell</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Titillium+Web:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/galeria.css') }}"
+    />
+  </head>
+  <body>
+    <header class="encabezado">
+      <img
+        src="{{ url_for('static', filename='images/logoMercedes.jpg') }}"
+        alt="Logo Mercedes"
+        class="logo-izquierdo"
+      />
+      <div class="titulo-bloque">
+        <h1 class="titulo-principal">Galería de George Russell</h1>
+      </div>
+      <img
+        src="{{ url_for('static', filename='images/amgCar.jpg') }}"
+        alt="AMG Car"
+        class="logo-derecho"
+      />
+    </header>
+    <!-- Botón flotante: volver al inicio -->
+    <aside class="contacto-sticky">
+      <a href="{{ url_for('home') }}" class="boton-contacto-icono">
+        🏁 Inicio
+      </a>
+    </aside>
+
+    <!-- Botón flotante: ir a contacto/suscripción -->
+    <aside class="galeria-sticky">
+      <a href="{{ url_for('contacto') }}" class="boton-galeria-icono">
+        ✍️ Suscribirme
+      </a>
+    </aside>
+
+    <div class="galeria">
+      <a
+        href="{{ url_for('static', filename='images/george1.png') }}"
+        class="lightbox"
+      >
+        <img
+          src="{{ url_for('static', filename='images/george1.png') }}"
+          alt="George 1"
+        />
+      </a>
+      <a
+        href="{{ url_for('static', filename='images/george2.png') }}"
+        class="lightbox"
+      >
+        <img
+          src="{{ url_for('static', filename='images/george2.png') }}"
+          alt="George 2"
+        />
+      </a>
+      <a
+        href="{{ url_for('static', filename='images/george3.png') }}"
+        class="lightbox"
+      >
+        <img
+          src="{{ url_for('static', filename='images/george3.png') }}"
+          alt="George 3"
+        />
+      </a>
+      <a
+        href="{{ url_for('static', filename='images/george4.png') }}"
+        class="lightbox"
+      >
+        <img
+          src="{{ url_for('static', filename='images/george4.png') }}"
+          alt="George 4"
+        />
+      </a>
+      <a
+        href="{{ url_for('static', filename='images/george5.png') }}"
+        class="lightbox"
+      >
+        <img
+          src="{{ url_for('static', filename='images/george5.png') }}"
+          alt="George 5"
+        />
+      </a>
+      <a
+        href="{{ url_for('static', filename='images/george6.png') }}"
+        class="lightbox"
+      >
+        <img
+          src="{{ url_for('static', filename='images/george6.png') }}"
+          alt="George 6"
+        />
+      </a>
+      <a
+        href="{{ url_for('static', filename='images/george7.png') }}"
+        class="lightbox"
+      >
+        <img
+          src="{{ url_for('static', filename='images/george7.png') }}"
+          alt="George 7"
+        />
+      </a>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/lightbox.js') }}"></script>
+  </body>
+</html>

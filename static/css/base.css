@@ -1,0 +1,280 @@
+/* --- base.css --- */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #00d2be, #111111, #00d2be);
+  position: relative;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  background-image: url("../images/circuits3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  opacity: 0.04;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.encabezado {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  margin: 1rem;
+}
+
+.logo-izquierdo,
+.logo-derecho {
+  width: 180px;
+  height: auto;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  justify-self: center;
+}
+
+.logo-izquierdo {
+  justify-self: start;
+}
+
+.logo-derecho {
+  justify-self: end;
+}
+
+.titulo-principal {
+  text-align: center;
+  font-size: 40px;
+  color: #f0e68c;
+  font-style: italic;
+  font-family: "Bebas Neue", cursive;
+  margin: 0;
+}
+
+.titulo-bloque {
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Bebas Neue", cursive;
+  text-align: center;
+  color: #ffeb99;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  font-style: italic;
+}
+
+p {
+  font-family: "Titillium Web", sans-serif;
+  color: #f6e8c4;
+  font-size: 15px;
+}
+
+/* Botones */
+.boton-deportivo {
+  padding: 12px 24px;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #111111;
+  background: linear-gradient(to right, #00d2be, #00a79d);
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 210, 190, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding-right: 40px;
+  margin-bottom: 1rem;
+}
+
+.boton-deportivo::after {
+  content: " →";
+  position: absolute;
+  opacity: 0;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) translateX(10px);
+  transition: all 0.3s ease;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.boton-deportivo:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.boton-deportivo:hover {
+  background: linear-gradient(to right, #00a79d, #00d2be);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 210, 190, 0.6);
+  color: #000;
+}
+.footer-redes {
+  background: rgba(0, 0, 0, 0.7);
+  border-top: 2px solid #00d2be;
+  padding: 30px 20px;
+  text-align: center;
+  margin-top: 60px;
+  box-shadow: 0 -4px 12px rgba(0, 210, 190, 0.15);
+  border-radius: 12px 12px 0 0;
+}
+
+.footer-redes h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 26px;
+  color: #ffeb99;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px black;
+}
+
+.redes-sociales {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.redes-sociales img {
+  width: 40px;
+  height: 40px;
+  filter: grayscale(30%);
+  transition: all 0.3s ease;
+}
+
+.redes-sociales img:hover {
+  transform: scale(1.2);
+  filter: grayscale(0%);
+}
+
+.galeria-sticky,
+.contacto-sticky {
+  position: fixed;
+  top: 50%;
+  z-index: 10;
+  animation: flotar 3s ease-in-out infinite;
+}
+
+.galeria-sticky {
+  right: 2rem;
+}
+.contacto-sticky {
+  left: 2rem;
+}
+
+@keyframes flotar {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.boton-galeria-icono,
+.boton-contacto-icono {
+  display: inline-block;
+  background: rgba(0, 210, 190, 0.8);
+  color: #111;
+  padding: 0.8rem 1.2rem;
+  border-radius: 30px;
+  font-weight: bold;
+  font-family: "Titillium Web", sans-serif;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(0, 210, 190, 0.3);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.boton-galeria-icono:hover,
+.boton-contacto-icono:hover {
+  background: #00d2be;
+  transform: scale(1.05);
+}
+
+/* --- MEDIA QUERIES --- */
+
+@media (max-width: 768px) {
+  .encabezado {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .logo-izquierdo,
+  .logo-derecho {
+    width: 120px;
+    margin: 0 auto;
+  }
+
+  .titulo-principal {
+    font-size: 28px;
+    margin-top: 10px;
+  }
+
+  .boton-deportivo {
+    font-size: 14px;
+    padding: 10px 20px;
+    padding-right: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo-principal {
+    font-size: 22px;
+  }
+
+  .boton-deportivo {
+    font-size: 13px;
+    padding: 8px 16px;
+    padding-right: 30px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+.footer-redes {
+  padding: 20px 10px;
+}
+
+.redes-sociales {
+  gap: 20px;
+}
+/* Responsive para los botones flotantes */
+@media (max-width: 768px) {
+  .galeria-sticky,
+  .contacto-sticky {
+    position: static;
+    float: none;
+    margin: 1rem auto;
+    text-align: center;
+    animation: none;
+  }
+}

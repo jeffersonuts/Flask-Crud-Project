@@ -1,0 +1,441 @@
+/* --- index.css --- */
+
+.encabezado {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  margin: 1rem;
+}
+
+.logo-izquierdo,
+.logo-derecho {
+  width: 180px;
+  height: auto;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  justify-self: center;
+}
+
+.logo-izquierdo {
+  justify-self: start;
+}
+
+.logo-derecho {
+  justify-self: end;
+}
+
+.titulo-principal {
+  text-align: center;
+  font-size: 40px;
+  color: #f0e68c;
+  font-style: italic;
+  font-family: "Bebas Neue", cursive;
+  margin: 0;
+}
+
+.titulo-bloque {
+  text-align: center;
+}
+
+.centrar-boton {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.foto-perfil {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 50px;
+  border: 2px solid #ccc;
+  display: block;
+  margin: auto;
+}
+
+.bio p {
+  text-align: justify;
+  margin: 20px auto;
+  width: 70%;
+}
+
+.presentacion {
+  display: grid;
+  grid-template-columns: 1fr 300px; /* agrega columna para la tarjeta */
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  box-shadow: 0 0 12px rgba(0, 210, 190, 0.3);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .presentacion {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .bio p,
+  .subtitulo {
+    text-align: center;
+  }
+
+  .foto-perfil {
+    margin-top: 1rem;
+  }
+}
+
+.centrar-boton {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both; /* ✨ Esto soluciona problemas causados por floats */
+}
+
+.texto-superpuesto {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 210, 190, 0.8);
+  color: #111;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 1rem;
+  text-align: center;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.estadisticas {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 210, 190, 0.3);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  color: #ffeb99;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.stat:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.stat h3 {
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+}
+
+.stat p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
+
+.figura1 {
+  font-family: Georgia;
+  text-align: center;
+  font-size: 20px;
+  max-width: 560px;
+  margin: 2rem auto;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+}
+
+.figura1 iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+}
+
+.figura1 figcaption {
+  margin-top: 10px;
+  font-style: italic;
+  color: #f6e8c4;
+}
+
+.figura1 a {
+  color: #ffeb99;
+  text-decoration: none;
+}
+
+.figura1 a:hover {
+  text-decoration: underline;
+}
+
+.moving-text-container {
+  max-width: 1000px;
+  margin: 3rem auto;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 210, 190, 0.3);
+}
+
+.moving-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: Arial, sans-serif;
+  font-size: 44px;
+  font-weight: bold;
+  background: linear-gradient(to right, #ffeb99, #ffa500);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  animation: scrollTexto 8s linear infinite;
+}
+
+@keyframes scrollTexto {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.icono-bandera {
+  display: inline-block;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+.bandera {
+  animation: ondear 1.5s ease-in-out infinite;
+  transform-origin: left center;
+}
+
+@keyframes ondear {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.volante-container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.volante {
+  font-family: monospace;
+  font-size: 12px;
+  white-space: pre;
+  color: #ffeb99;
+  animation: girarVolante 1.5s infinite alternate ease-in-out;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@keyframes girarVolante {
+  from {
+    transform: rotate(-10deg);
+  }
+  to {
+    transform: rotate(10deg);
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+}
+
+.modal-contenido {
+  background-color: #1b1b1b;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  color: #f6e8c4;
+  position: relative;
+}
+
+.cerrar {
+  color: #ffeb99;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.cerrar:hover {
+  transform: scale(1.2);
+  color: #ffffff;
+}
+
+.mensajes-flash {
+  max-width: 600px;
+  margin: 1.5rem auto;
+  padding: 1rem 1.5rem;
+  background-color: #00d2be;
+  color: #111;
+  font-weight: bold;
+  font-family: "Titillium Web", sans-serif;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 210, 190, 0.4);
+  font-size: 3rem;
+  animation: aparecer 0.6s ease-out, desvanecer 6s ease-in forwards;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes desvanecer {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+/*PARA PANTALLAS PEQUENAS*/
+@media (max-width: 768px) {
+  .encabezado {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .logo-izquierdo,
+  .logo-derecho {
+    width: 120px;
+    margin: 0 auto;
+  }
+
+  .titulo-principal {
+    font-size: 32px;
+  }
+
+  .boton-deportivo {
+    display: inline-block;
+    margin-top: 1rem;
+  }
+
+  .presentacion {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .bio p {
+    width: 90%;
+  }
+
+  .foto-perfil {
+    max-width: 200px;
+  }
+
+  .boton-galeria-icono,
+  .boton-contacto-icono {
+    font-size: 14px;
+    padding: 0.4rem 0.8rem;
+    width: fit-content;
+    display: inline-block;
+    min-width: 120px; /* ajustar esto para forzar que ambos sean iguales */
+    text-align: center;
+  }
+
+  .galeria-sticky,
+  .contacto-sticky {
+    position: static;
+    margin: 1rem auto;
+    text-align: center;
+    animation: none;
+  }
+
+  .centrar-boton {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .estadisticas {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .figura1 {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .moving-text {
+    font-size: 24px;
+  }
+
+  .modal-contenido {
+    width: 95%;
+    margin-top: 20%;
+  }
+}

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Titillium+Web:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS para la página principal -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
+    />
+  </head>
+  <body>
+    <header class="encabezado">
+      <img
+        src="{{ url_for('static', filename='images/logoMercedes.jpg') }}"
+        alt="Logo Mercedes"
+        class="logo-izquierdo"
+      />
+      <div class="titulo-bloque">
+        <h1 class="titulo-principal">George Russell</h1>
+        <a
+          class="boton-deportivo"
+          href="https://www.formula1.com/en/drivers/george-russell.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          🏁 Ver estadísticas oficiales
+        </a>
+      </div>
+      <img
+        src="{{ url_for('static', filename='images/amgCar.jpg') }}"
+        alt="AMG Car"
+        class="logo-derecho"
+      />
+    </header>
+
+    {% with mensajes = get_flashed_messages() %} {% if mensajes %}
+    <div class="mensajes-flash">
+      {% for mensaje in mensajes %}
+      <p>{{ mensaje }}</p>
+      {% endfor %}
+    </div>
+    {% endif %} {% endwith %}
+
+    <section class="presentacion">
+      <div class="bio">
+        <h2 class="subtitulo">Biografía</h2>
+        <p>
+          <strong>George Russell</strong> es un piloto británico de Fórmula 1
+          que actualmente compite para el equipo
+          <strong>Mercedes-AMG Petronas.</strong> Conocido por su talento,
+          disciplina y enfoque meticuloso, Russell ha demostrado ser una de las
+          jóvenes promesas más sólidas de la parrilla. Debutó en la F1 en 2019
+          con Williams y se unió a Mercedes como piloto titular en 2022,
+          logrando su primera victoria ese mismo año en el Gran Premio de
+          Brasil.
+        </p>
+      </div>
+      <img
+        src="{{ url_for('static', filename='images/george.jpg') }}"
+        alt="George Russell"
+        class="foto-perfil"
+      />
+    </section>
+    <!-- Fin de .presentacion -->
+
+    <aside class="galeria-sticky">
+      <a href="{{ url_for('galeria') }}" class="boton-galeria-icono">
+        📸 Galería
+      </a>
+    </aside>
+
+    <aside class="contacto-sticky">
+      <a href="{{ url_for('contacto') }}" class="boton-contacto-icono">
+        ✍️ Suscríbete
+      </a>
+    </aside>
+
+    <div class="centrar-boton">
+      <button id="abrirModal" class="boton-deportivo">
+        Ver más sobre George
+      </button>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-contenido">
+        <span id="cerrarModal" class="cerrar">&times;</span>
+        <h2>Biografía extendida</h2>
+        <p>
+          George Russell nació el 15 de febrero de 1998 en King's Lynn,
+          Inglaterra. Es el piloto con el lema: “Si tienes dudas, acelera a
+          fondo”. George Russell ha vivido según ese lema a lo largo de su
+          carrera en la F1 hasta ahora: superó en clasificación a su
+          experimentado compañero Robert Kubica en los 21 Grandes Premios de su
+          temporada como novato, devolvió a Williams al podio en 2021 y
+          consiguió su primera victoria en una carrera con Mercedes en 2022. Esa
+          brillante velocidad base le sirvió bien a Russell mientras acumulaba
+          títulos camino a la Fórmula 1. El británico arrasó en el campeonato de
+          GP3 en 2017 y logró la corona de Fórmula 2 en 2018 bajo una enorme
+          presión. Al ver su potencial, los campeones mundiales Mercedes se
+          apresuraron a ficharlo para su programa de jóvenes pilotos en 2017,
+          cuando Russell ya tenía una oferta sobre la mesa en el DTM. Ganó
+          experiencia con sesiones de práctica con Force India y pruebas para
+          las Flechas Plateadas antes de conseguir su asiento como piloto de
+          carreras en Williams, impulsado por motores Mercedes. Su negativa a
+          ceder terreno a sus rivales —y su determinación para ejecutar
+          adelantamientos difíciles— son la base de la mentalidad ganadora de
+          Russell. Y fue esa actitud la que le valió el llamado para reemplazar
+          a Lewis Hamilton en una única aparición con Mercedes en Sakhir 2020,
+          cuando el campeón reinante fue afectado por Covid-19. En esa destacada
+          actuación, Russell se quedó a solo 0.026 segundos de la pole y luego
+          superó al veterano de Mercedes, Valtteri Bottas. Solo una parada
+          fallida en boxes y un pinchazo desgarrador al final le impidieron
+          lograr lo que habría sido una casi segura primera victoria. Siguió
+          trabajando con discreción en Williams durante 2021, consiguiendo sus
+          primeros puntos y podio, siempre con la vista puesta en un objetivo
+          mayor. Habiendo demostrado ser un trabajador incansable y un talento
+          tenaz, ese objetivo llegó en forma de la oportunidad de enfrentarse a
+          su compatriota y siete veces campeón Hamilton con el mismo coche.
+          Russell disfrutó esa oportunidad, y consiguió su primera victoria en
+          F1 —y la única de Mercedes en 2022— en Brasil. La temporada 2023
+          resultó más difícil, pero volvió a subir dos veces al podio en 2024 y
+          para 2025 lidera el equipo tras la marcha de Hamilton a Ferrari. Y si
+          las Flechas Plateadas logran recuperarse y ofrecer un coche realmente
+          competitivo, seguramente lo veremos en la lucha por el título —un
+          desafío enorme, pero como siempre, ‘Russell el Cohete’ irá a fondo.
+        </p>
+      </div>
+    </div>
+
+    {% if session.get('admin_autenticado') %}
+  <div class="centrar-boton">
+    <a href="{{ url_for('admin') }}" class="boton-deportivo">
+      ⚙️ Ir al panel de administración
+    </a>
+  </div>
+{% endif %}
+
+
+    <section class="estadisticas">
+      <h2 class="subtitulo">Estadísticas clave</h2>
+      <div class="stats-grid">
+        <div class="stat">
+          <h3>🏎️ Carreras</h3>
+          <p>{{ carreras }}</p>
+        </div>
+        <div class="stat">
+          <h3>🥇 Victorias</h3>
+          <p>{{ victorias }}</p>
+        </div>
+        <div class="stat">
+          <h3>🏆 Podios</h3>
+          <p>{{ podios }}</p>
+        </div>
+        <div class="stat">
+          <h3>🔢 Puntos</h3>
+          <p>{{ puntos }}</p>
+        </div>
+      </div>
+    </section>
+
+    <figure class="figura1">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/2bjmZVD6A7A?si=VRUMV_ZMmjDSPVx1"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+
+      <figcaption>
+        10 Things Formula 1 Driver George Russell Can't Live Without
+        <a
+          href="https://www.youtube.com/embed/2bjmZVD6A7A?si=VRUMV_ZMmjDSPVx1"
+          target="_blank"
+          >Ver en YouTube</a
+        >
+      </figcaption>
+    </figure>
+
+    <div class="moving-text-container">
+      <h3 class="moving-text">
+        <span class="icono-bandera">
+          <!-- Bandera ondeando -->
+          <svg
+            width="60"
+            height="40"
+            viewBox="0 0 60 40"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect x="2" y="8" width="4" height="24" fill="#444" />
+            <path
+              class="bandera"
+              d="
+          M6 8
+          q5 -4 10 0
+          q5 4 10 0
+          q5 -4 10 0
+          q5 4 10 0
+          q5 -4 10 0
+          v24
+          q-5 4 -10 0
+          q-5 -4 -10 0
+          q-5 4 -10 0
+          q-5 -4 -10 0
+          q-5 4 -10 0
+          z
+        "
+              fill="#fff"
+            />
+            <path
+              d="M6 8
+          q5 -4 10 0
+          q5 4 10 0
+          q5 -4 10 0
+          q5 4 10 0
+          q5 -4 10 0
+          v24
+          q-5 4 -10 0
+          q-5 -4 -10 0
+          q-5 4 -10 0
+          q-5 -4 -10 0
+          q-5 4 -10 0
+          z
+        "
+              fill="url(#cuadros)"
+            />
+            <defs>
+              <pattern
+                id="cuadros"
+                patternUnits="userSpaceOnUse"
+                width="8"
+                height="8"
+              >
+                <rect width="4" height="4" fill="#000" />
+                <rect x="4" y="4" width="4" height="4" fill="#000" />
+              </pattern>
+            </defs>
+          </svg>
+        </span>
+        Piloto insignia Escudería Mercedes AMG F1
+      </h3>
+    </div>
+
+    <div class="volante-container">
+      <pre class="volante">
+                  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣠⣀⡠⠠⢤⠤⡤⠤⠀⠠⠀⣠⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⣀⣤⣤⣤⠤⢤⣄⣒⣒⣿⣶⣶⣖⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⣭⣒⣂⣠⡠⢀⣀⣤⠤⡀⠀⠀⠀⠀⠀
+        ⠀⠀⠀⣠⣞⡿⢞⣿⣗⠉⢸⣿⢿⣿⣿⣿⡿⠿⠿⠿⠿⠿⠿⢿⠿⢿⠿⠿⠿⠿⠿⠿⣿⣿⡝⠛⣛⣯⣾⣿⣿⣮⣢⡀⠀⠀⠀
+        ⠀⢀⣾⣷⣟⣾⣿⠏⢻⡲⣺⣇⣀⣻⣿⣿⣿⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣷⣾⣶⣾⣿⣿⣿⣶⣾⡿⣿⠃⠻⣿⣿⣿⣯⢦⠀⠀
+        ⠀⣸⣿⣿⣿⣿⡿⢒⡒⠛⣿⣿⣿⣿⣿⣿⡿⣨⣝⣉⣙⣉⣋⣉⣉⣉⣉⣉⣩⠭⢹⣿⡃⢈⣿⠣⢠⢒⣊⠪⢻⣿⠟⢹⣧⡆⠀
+        ⠀⣿⣿⡿⠋⠈⢁⣿⣿⡆⢘⣿⣏⠀⢹⣿⡃⠐⠶⠶⠄⠢⠔⠄⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿⠐⢡⣾⣽⡗⠠⢱⣾⠿⢸⠀
+        ⢸⣿⣿⠃⠀⢰⣿⣿⣿⡇⠸⣿⣿⣲⣿⣿⣁⢂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣼⣿⣿⠛⢿⣿⠃⠀⣿⣿⣏⡷⡄⢸⡀⠨⡅
+        ⢸⣿⣿⠀⠀⡸a⣿⣿⣿⣿⣂⣿⣿⣿⣿⣿⢝⣽⣷⣾⢵⠷⡷⠺⠖⠶⢶⡖⡺⢋⠛⣠⣴⣾⣿⡃⠀⣿⣿⣿⣿⠀⠀⣿⡇⠀⡇
+        ⢸⣿⣿⠀⢸⣿⣿⣿⣿⢻⣿⣾⣿⣿⠀⢱⣿⣿⣿⣿⣾⣶⣾⣾⣿⣿⣿⣿⣽⡩⠂⢸⣿⣿⣿⣬⣴⣿⣿⣿⣹⠀⣾⣿⡇⠀⡇
+        ⢸⣿⣿⡀⠀⢙⣿⣿⣿⣾⢄⢸⣿⣿⣶⣿⡟⣿⣿⢧⣿⣿⣿⣿⣿⣿⣿⢿⣿⡷⣰⢻⣿⣿⣿⡋⢹⣿⣿⢣⡏⢸⣿⣿⠇⠀⡇
+        ⠘⣿⣿⡇⠀⢸⣿⠐⣿⣿⠀⣸⣿⣿⣿⣿⣿⠛⠉⢿⣿⣿⣿⣿⣿⣿⣿⠛⠛⠛⢋⣟⣿⣿⣽⠀⢰⣿⣟⡿⢱⢰⣿⣿⠀⢸⠃
+        ⠀⢻⣿⣿⡀⠈⣿⡇⠊⣿⡅⠀⠉⣩⢾⣿⣧⡀⠀⣸⣿⣿⣷⣿⣿⡿⡇⢀⠀⣠⣭⣿⢼⠟⡁⢠⣿⡿⣷⠇⢠⣾⣿⡟⠀⡞⠀
+        ⠀⠈⢿⣿⣧⠀⠘⠿⠾⠾⠛⢐⣄⣺⣿⣿⣿⣟⢶⣿⡷⣿⣿⣿⣿⣇⢿⣿⡗⣿⣿⣿⡫⢪⣦⠈⠛⠋⢁⣴⣿⣿⡿⠁⡸⠁⠀
+        ⠀⠀⠸⣿⣿⣆⠀⠀⣤⠶⢚⣛⣽⣾⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⢞⣍⣉⡛⠶⢤⣾⣿⣿⣿⠃⢠⠃⠀⠀
+        ⠀⠀⠀⠻⣿⣿⡆⠀⡷⠂⠒⠛⠛⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠙⠛⠓⠒⠲⢿⣿⣿⠧⣤⠏⠀⠀⠀
+        ⠀⠀⠀⠀⠉⠛⠓⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠛⠒⠉⠀⠀⠀⠀
+      </pre>
+    </div>
+
+    <footer class="footer-redes">
+      <h2>Síguelo en redes sociales</h2>
+      <div class="redes-sociales">
+        <a
+          href="https://www.tiktok.com/@official.georgerussell"
+          target="_blank"
+          title="TikTok"
+        >
+          <img
+            src="https://www.svgrepo.com/show/303156/tiktok-icon-white-1-logo.svg"
+            alt="TikTok"
+          />
+        </a>
+        <a
+          href="https://x.com/GeorgeRussell63"
+          target="_blank"
+          title="X (Twitter)"
+        >
+          <img
+            src="https://static.vecteezy.com/system/resources/thumbnails/027/395/710/small_2x/twitter-brand-new-logo-3-d-with-new-x-shaped-graphic-of-the-world-s-most-popular-social-media-free-png.png"
+            alt="Twitter X"
+          />
+        </a>
+        <a
+          href="https://www.instagram.com/georgerussell63/"
+          target="_blank"
+          title="Instagram"
+        >
+          <img
+            src="https://www.svgrepo.com/show/452229/instagram-1.svg"
+            alt="Instagram"
+          />
+        </a>
+        <a
+          href="https://www.facebook.com/OfficialGR63"
+          target="_blank"
+          title="Facebook"
+        >
+          <img
+            src="https://www.svgrepo.com/show/475647/facebook-color.svg"
+            alt="Facebook"
+          />
+        </a>
+      </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+  </body>
+</html>

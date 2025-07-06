@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Titillium+Web:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/contacto.css') }}"
+    />
+  </head>
+  <body>
+    <header class="encabezado">
+      <img
+        src="{{ url_for('static', filename='images/logoMercedes.jpg') }}"
+        alt="Logo Mercedes"
+        class="logo-izquierdo"
+      />
+      <div class="titulo-bloque">
+        <h1 class="titulo-principal">Suscripción</h1>
+      </div>
+      <img
+        src="{{ url_for('static', filename='images/amgCar.jpg') }}"
+        alt="AMG Car"
+        class="logo-derecho"
+      />
+    </header>
+
+    <section class="beneficios-suscripcion">
+      <h2>¿Por qué suscribirte?</h2>
+      <ul>
+        <li>📰 Noticias exclusivas sobre George Russell.</li>
+        <li>📅 Información anticipada sobre carreras y eventos.</li>
+        <li>🎥 Contenido multimedia adicional para fans.</li>
+        <li>🎁 Participación en sorteos y concursos.</li>
+      </ul>
+    </section>
+    <!-- Botón flotante: volver al inicio -->
+    <aside class="contacto-sticky">
+      <a href="{{ url_for('home') }}" class="boton-contacto-icono">
+        🏁 Inicio
+      </a>
+    </aside>
+
+    <!-- Botón flotante: ir a galería -->
+    <aside class="galeria-sticky">
+      <a href="{{ url_for('galeria') }}" class="boton-galeria-icono">
+        📸 Galería
+      </a>
+    </aside>
+
+    <section class="formulario-suscripcion">
+      <h2>Suscríbete ahora</h2>
+
+      <form action="{{ url_for('procesar_suscripcion') }}" method="POST">
+        <div class="campo-formulario">
+          <label for="nombre">Nombre completo:</label>
+          <input type="text" id="nombre" name="nombre" required />
+        </div>
+
+        <div class="campo-formulario">
+          <label for="email">Correo electrónico:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="campo-formulario checkbox">
+          <label>
+            <input type="checkbox" name="acepta" required />
+            Acepto recibir correos con novedades sobre George Russell
+          </label>
+        </div>
+
+        <button type="submit" class="boton-deportivo">Suscribirme</button>
+      </form>
+    </section>
+    <section class="cita-george">
+      <blockquote>"Si tienes dudas, acelera a fondo."</blockquote>
+      <p>— George Russell</p>
+    </section>
+    <footer class="footer-redes">
+      <h2>Síguelo en redes sociales</h2>
+      <div class="redes-sociales">
+        <a
+          href="https://www.tiktok.com/@official.georgerussell"
+          target="_blank"
+          title="TikTok"
+        >
+          <img
+            src="https://www.svgrepo.com/show/303156/tiktok-icon-white-1-logo.svg"
+            alt="TikTok"
+          />
+        </a>
+        <a
+          href="https://x.com/GeorgeRussell63"
+          target="_blank"
+          title="X (Twitter)"
+        >
+          <img
+            src="https://static.vecteezy.com/system/resources/thumbnails/027/395/710/small_2x/twitter-brand-new-logo-3-d-with-new-x-shaped-graphic-of-the-world-s-most-popular-social-media-free-png.png"
+            alt="Twitter X"
+          />
+        </a>
+        <a
+          href="https://www.instagram.com/georgerussell63/"
+          target="_blank"
+          title="Instagram"
+        >
+          <img
+            src="https://www.svgrepo.com/show/452229/instagram-1.svg"
+            alt="Instagram"
+          />
+        </a>
+        <a
+          href="https://www.facebook.com/OfficialGR63"
+          target="_blank"
+          title="Facebook"
+        >
+          <img
+            src="https://www.svgrepo.com/show/475647/facebook-color.svg"
+            alt="Facebook"
+          />
+        </a>
+      </div>
+    </footer>
+  </body>
+</html>

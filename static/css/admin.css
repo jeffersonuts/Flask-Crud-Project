@@ -1,0 +1,185 @@
+.admin-panel {
+  max-width: 600px;
+  margin: 3rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: "Titillium Web", sans-serif;
+}
+
+.admin-panel h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 2rem 0 1.5rem;
+  font-family: "Bebas Neue", cursive;
+  color: #fdd835;
+  text-shadow: 1px 1px 1px #444;
+}
+
+.admin-panel form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-panel label {
+  font-weight: bold;
+}
+
+.admin-panel input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.admin-panel .botones {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.admin-panel .botones button,
+.admin-panel .botones a {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  font-family: "Titillium Web", sans-serif;
+  flex: 1;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.admin-panel .botones button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.admin-panel .botones a {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+/* Tabla CRUD */
+.tabla-crud {
+  width: 100%;
+  margin-top: 2rem;
+  border-collapse: collapse;
+}
+
+.tabla-crud th,
+.tabla-crud td {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.tabla-crud td input {
+  width: 100%;
+  padding: 4px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Acciones */
+.tabla-crud td {
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.boton-guardar,
+.boton-eliminar {
+  display: inline-block;
+  padding: 6px 10px;
+  margin: 2px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.boton-guardar {
+  background-color: #007bff;
+}
+
+.boton-eliminar {
+  background-color: #dc3545;
+}
+
+.form-crear {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-crear button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Agrupación de botones en tabla */
+.acciones-crud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+}
+
+/* ------------------- */
+/* 📱 Responsive Design */
+/* ------------------- */
+@media (max-width: 768px) {
+  .admin-panel {
+    margin: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .admin-panel h2 {
+    font-size: 1.6rem;
+  }
+
+  .admin-panel .botones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-panel .botones button,
+  .admin-panel .botones a {
+    width: 100%;
+  }
+
+  .tabla-crud th,
+  .tabla-crud td {
+    font-size: 0.9rem;
+  }
+
+  .acciones-crud {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .boton-guardar,
+  .boton-eliminar {
+    width: 100%;
+  }
+}
+
+.acciones-crud .boton-guardar,
+.acciones-crud .boton-eliminar {
+  min-width: 90px;
+  text-align: center;
+  padding: 6px 0;
+}

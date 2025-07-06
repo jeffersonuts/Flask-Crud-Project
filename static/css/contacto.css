@@ -1,0 +1,128 @@
+/* --- contacto.css --- */
+
+/* Sección de beneficios */
+.beneficios-suscripcion {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 210, 190, 0.3);
+  color: #fff;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.beneficios-suscripcion h2 {
+  text-align: center;
+  color: #ffeb99;
+  margin-bottom: 1rem;
+}
+
+.beneficios-suscripcion ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.beneficios-suscripcion li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-family: "Titillium Web", sans-serif;
+  color: #ffeb99;
+  position: relative;
+}
+
+/* ✅ Icono de visto bueno al inicio */
+.beneficios-suscripcion li::before {
+  content: "✅";
+  display: inline-block;
+  font-size: 1.2em;
+  margin-right: 0.3rem;
+}
+
+/* Sección del formulario */
+.formulario-suscripcion {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+  font-family: "Titillium Web", sans-serif;
+  color: #fff;
+}
+
+.formulario-suscripcion h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #ffeb99;
+}
+
+.campo-formulario {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.campo-formulario label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.campo-formulario input[type="text"],
+.campo-formulario input[type="email"] {
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #111;
+}
+
+.campo-formulario.checkbox {
+  flex-direction: row;
+  align-items: center;
+}
+
+.campo-formulario.checkbox label {
+  margin: 0;
+  font-weight: normal;
+}
+
+.campo-formulario.checkbox input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+.boton-deportivo {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Cita inspiradora */
+.cita-george {
+  max-width: 600px;
+  margin: 3rem auto;
+  text-align: center;
+  font-style: italic;
+  color: #ffeb99;
+  font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .formulario-suscripcion,
+  .cita-george {
+    padding: 1rem;
+    margin: 1.5rem;
+  }
+
+  .formulario-suscripcion h2 {
+    font-size: 26px;
+  }
+
+  .cita-george blockquote {
+    font-size: 18px;
+  }
+}

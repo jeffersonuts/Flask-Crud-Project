@@ -1,0 +1,25 @@
+<!-- templates/admin_login.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login Admin</title>
+</head>
+<body>
+  <h2>Acceso Administrador</h2>
+  {% with mensajes = get_flashed_messages() %}
+    {% if mensajes %}
+      <ul>
+        {% for mensaje in mensajes %}
+          <li>{{ mensaje }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  <form method="post">
+    <label>Clave: <input type="password" name="clave" required></label><br>
+    <button type="submit">Entrar</button>
+  </form>
+</body>
+</html>
